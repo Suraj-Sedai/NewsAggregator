@@ -1,0 +1,25 @@
+
+<!-- news/search.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Search Results</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Search">
+  </form>
+  {% if articles %}
+    <ul>
+      {% for article in articles %}
+        <li>
+          <a href="{{ article.url }}" target="_blank">{{ article.title }}</a>
+          <p>{{ article.description }}</p>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No results found.</p>
+  {% endif %}
+{% endblock %}

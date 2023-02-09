@@ -1,0 +1,21 @@
+<!-- news/index.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1 style='text-align:center; font-size: 3rem; font-weight:bolder; color:#192a56' >Latest News</h1>
+    {% for article in latest_articles %}
+    <a href="" style=' text-decoration:none; color:none'>
+      <div class="card text-bg-dark" style="margin-left: 4rem; max-width: 26rem; display: inline-flex; align-item: center ; margin-top: 0.5rem;" >
+        <div class="card-header" style='color:#2f3640; font-weight:bold'>{{ article.author }}</div>
+        <div class="card-body">
+          <img src="{{ article.image.url }}" alt="News image">
+          <h5 class="card-title">{{ article.title }}</h5>
+          <p class="card-text"style='color:#353b48'>{{ article.description }} <br>  {{ article.date }}</p>
+
+        </div>
+      </div>
+    </a>
+    {% endfor %}
+  
+{% endblock %}

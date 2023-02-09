@@ -1,0 +1,9 @@
+<!-- news/detail.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{{ article.title }}</h1>
+  <p>{{ article.description }}</p>
+  <a href="{{ article.url }}" target="_blank">Read more</a>
+{% endblock %}
