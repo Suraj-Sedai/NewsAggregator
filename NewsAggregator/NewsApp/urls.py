@@ -7,9 +7,11 @@ from django.conf.urls.static import static
 app_name = 'news'
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('article/<int:article_id>/', views.detail, name='detail'),
-    path('search/', views.search, name='search'),
+    # path('', views.index, name='index'),
+    # path('article/<int:article_id>/', views.detail, name='detail'),
+    # path('search/', views.search, name='search'),
+    path('api/newsapi-articles/', views.newsapi_articles, name='newsapi_articles'),
+
 ]
 
 
