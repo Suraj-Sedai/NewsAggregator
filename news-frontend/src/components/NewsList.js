@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react';
-import { fetchArticles } from '../services/newsService'; // adjust path if needed
+import { useEffect, useState } from "react";
+import { fetchArticles } from "../services/newsService"; // adjust path if needed
+import "./NewsList.css";
 
 const NewsList = () => {
   const [articles, setArticles] = useState([]);
@@ -11,12 +12,16 @@ const NewsList = () => {
   return (
     <div>
       <h1>News Articles</h1>
-      {articles.map(article => (
-        <div key={article.id}>
-          <h2>{article.title}</h2>
-          <p>{article.summary}</p>
-        </div>
-      ))}
+      <div className="news-container">
+        {articles.map((article, index) => (
+          <div className="news-card" key={index}>
+            <img src={article.urlToImage} alt="news" />
+            <h2>{article.title}</h2>
+            <p>{article.description}</p>
+            <p>{new Date(article.publishedAt).toLocaleString()}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
