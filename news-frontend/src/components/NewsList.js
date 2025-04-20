@@ -15,7 +15,15 @@ const NewsList = () => {
       <div className="news-container">
         {articles.map((article, index) => (
           <div className="news-card" key={index}>
-            <img src={article.urlToImage} alt="news" />
+            <img
+              src={article.urlToImage || "/no-image.jpg"}
+              alt="news"
+              onError={(e) => {
+                e.target.onerror = null; // prevent infinite loop
+                e.target.src = "/no-image.jpg";
+              }}
+            />
+
             <h2>{article.title}</h2>
             <p>{article.description}</p>
             <p>{new Date(article.publishedAt).toLocaleString()}</p>
