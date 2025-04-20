@@ -35,6 +35,7 @@ SECRET_KEY = 'django-insecure-(^$@u=x=*t-h!_dn&5kz)9)242929_2em++3ie2k^w+%d^x3$d
 DEBUG = True
 
 ALLOWED_HOSTS = []
+CORS_ALLOW_ALL_ORIGINS = True  # or use CORS_ALLOWED_ORIGINS
 
 
 # Application definition
@@ -46,7 +47,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'NewsApp'
+    'NewsApp',
+    'corsheaders',
+    'rest_framework',
+
 ]
 
 MIDDLEWARE = [
@@ -57,6 +61,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'NewsAggregator.urls'
